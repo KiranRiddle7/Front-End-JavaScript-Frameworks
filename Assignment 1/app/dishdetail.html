@@ -49,6 +49,19 @@
         
             <div class="col-xs-9 col-xs-offset-1">
                 <h3>Customer Comments </h3>
+                   <div ng-repeat="dish in dishCtrl.dish">
+                      <div ng-repeat="key in dish.comments">
+                <blockquote>
+                      <p>{{key.rating}} Stars </p>
+                      <p> {{key.comment}} </p>
+                      <p> {{key.author}} </p>
+                      <p> {{key.date}}</p>
+
+                      
+                     
+                      <footer>Someone famous in </footer>
+                </blockquote>
+                </div>
             </div>
         </div>
 
