@@ -48,14 +48,16 @@
             </div>
         
             <div class="col-xs-9 col-xs-offset-1">
-                <h3>Customer Comments </h3>
-                   <div ng-repeat="dish in dishCtrl.dish">
-                      <div ng-repeat="key in dish.comments">
+                <div>
+                <h4> <strong> Customer Comments </strong>   <label style="padding-left:60px">Sort By: &nbsp </label><input type="text" ng-model="sortOption" placeholder="author / rating / date"></h4>  
+                </div>
+                <div ng-repeat="dish in dishCtrl.dish">
+                  <div ng-repeat="comment in dish.comments | orderBy:sortOption">
                 <blockquote>
-                      <p>{{key.rating}} Stars </p>
-                      <p> {{key.comment}} </p>
+                      <p>{{comment.rating}} Stars </p>
+                      <p> {{comment.comment}} </p>
 
-                      <footer>{{key.author}} {{key.date  | date:'medium'}} </footer>
+                      <footer>{{comment.author}} {{comment.date  | date:'medium'}} </footer>
                 </blockquote>
                 </div>
             </div>
@@ -112,6 +114,7 @@
                         ]
 
                         this.dish = dish;
+                        
 
         });
     </script>
